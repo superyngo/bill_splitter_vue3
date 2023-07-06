@@ -1,0 +1,47 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import type { Ref } from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+      currentNoteIndex: 0,
+      Notes: ["123"],
+    };
+  },
+  mounted() {
+    this.newNotes();
+  },
+  methods: {
+
+  },
+});
+</script>
+
+<template>
+  <main>
+    <div>
+      <h1>Easy Notebook</h1>
+      <h3>Just a tiny easy little notebook</h3>
+    </div>
+    <div>
+      <textarea
+        v-model="Notes[currentNoteIndex]"
+        name="notebook"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Note here..."
+      ></textarea>
+    </div>
+    <div><button @click="newNotes">save</button></div>
+  </main>
+
+  <footer>
+    <div v-for="note of Notes">
+      <button>{{ note }}</button>
+    </div>
+  </footer>
+</template>
+
+<style scoped></style>
